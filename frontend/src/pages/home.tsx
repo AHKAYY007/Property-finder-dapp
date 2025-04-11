@@ -1,5 +1,4 @@
-import React from 'react'
-import Link from 'next/link'
+import { Link } from "react-router";
 
 export default function Home() {
   return (
@@ -12,18 +11,19 @@ export default function Home() {
               Find Your Dream Property on the Blockchain
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              A decentralized platform for buying, selling, and managing properties using Sui blockchain technology.
-              List your property as an NFT and reach global buyers.
+              A decentralized platform for buying, selling, and managing
+              properties using Sui blockchain technology. List your property as
+              an NFT and reach global buyers.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
-                href="/properties"
+                to="/properties"
                 className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
               >
                 Browse Properties
               </Link>
               <Link
-                href="/properties/new"
+                to="/properties/new"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 List Your Property <span aria-hidden="true">→</span>
@@ -52,7 +52,8 @@ export default function Home() {
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                   <p className="flex-auto">
-                    Your property is tokenized as an NFT on the Sui blockchain, ensuring secure and verifiable ownership.
+                    Your property is tokenized as an NFT on the Sui blockchain,
+                    ensuring secure and verifiable ownership.
                   </p>
                 </dd>
               </div>
@@ -62,7 +63,8 @@ export default function Home() {
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                   <p className="flex-auto">
-                    List your property and reach buyers worldwide through our decentralized marketplace.
+                    List your property and reach buyers worldwide through our
+                    decentralized marketplace.
                   </p>
                 </dd>
               </div>
@@ -72,7 +74,8 @@ export default function Home() {
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                   <p className="flex-auto">
-                    All transactions are handled through smart contracts, ensuring security and transparency.
+                    All transactions are handled through smart contracts,
+                    ensuring security and transparency.
                   </p>
                 </dd>
               </div>
@@ -81,5 +84,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
-} 
+  );
+}
