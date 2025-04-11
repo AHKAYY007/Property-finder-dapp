@@ -14,7 +14,7 @@ property-finder-dapp/
 ## Prerequisites
 
 - Python 3.9+
-- Node.js 16+
+- Node.js 18+
 - PostgreSQL
 - Sui CLI
 - IPFS node (or use a gateway service)
@@ -38,7 +38,7 @@ sui client publish --gas-budget 100000000
 After deployment, copy the package ID and update:
 - `contracts/Move.toml` - Update `published-at` address
 - Backend `.env` - Update `PACKAGE_ID`
-- Frontend `.env` - Update `NEXT_PUBLIC_PACKAGE_ID`
+- Frontend `.env` - Update `PACKAGE_ID`
 
 ### 2. Backend Setup
 
@@ -100,17 +100,17 @@ cp .env.example .env
 Configure your frontend `.env` file with:
 ```env
 # API Configuration
-NEXT_PUBLIC_API_URL=http://localhost:8000
+API_URL=http://localhost:8000
 
 # Smart Contract Configuration
-NEXT_PUBLIC_NETWORK=devnet
-NEXT_PUBLIC_PACKAGE_ID=your_deployed_package_id_here
+NETWORK=devnet
+PACKAGE_ID=your_deployed_package_id_here
 
 # IPFS Configuration
-NEXT_PUBLIC_IPFS_GATEWAY=https://ipfs.io/ipfs/
+IPFS_GATEWAY=https://ipfs.io/ipfs/
 
 # Sui Network
-NEXT_PUBLIC_SUI_NETWORK=devnet
+SUI_NETWORK=devnet
 ```
 
 ```bash
@@ -151,16 +151,16 @@ npm run dev
 ### Frontend (.env)
 
 1. **API Configuration**
-   - `NEXT_PUBLIC_API_URL`: Backend API URL
+   - `API_URL`: Backend API URL
    - Development: `http://localhost:8000`
    - Production: Your deployed API URL
 
 2. **Smart Contract Configuration**
-   - `NEXT_PUBLIC_NETWORK`: Match with backend (devnet/testnet)
-   - `NEXT_PUBLIC_PACKAGE_ID`: Same as backend PACKAGE_ID
+   - `NETWORK`: Match with backend (devnet/testnet)
+   - `PACKAGE_ID`: Same as backend PACKAGE_ID
 
 3. **IPFS Configuration**
-   - `NEXT_PUBLIC_IPFS_GATEWAY`: Public IPFS gateway
+   - `IPFS_GATEWAY`: Public IPFS gateway
    - Default: `https://ipfs.io/ipfs/`
    - Alternative: `https://gateway.pinata.cloud/ipfs/`
 

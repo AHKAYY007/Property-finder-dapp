@@ -56,7 +56,7 @@ export default function PropertyList() {
             <img
               src={
                 property.images[0]
-                  ? `${process.env.NEXT_PUBLIC_IPFS_GATEWAY}/ipfs/${property.images[0]}`
+                  ? `${process.env.IPFS_GATEWAY}/ipfs/${property.images[0]}`
                   : "/placeholder.jpg"
               }
               alt={property.title}
