@@ -1,46 +1,39 @@
-import React from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { useSearchParams } from 'next/navigation'
-import useSWR from 'swr'
-import { fetcher } from '@/lib/api'
+import useSWR from "swr";
+import { fetcher } from "@/lib/api";
+import { Link, useSearchParams } from "react-router";
 
 interface Property {
-  id: number
-  title: string
-  description: string
-  price: number
-  currency: string
-  location: string
-  bedrooms: number
-  bathrooms: number
-  area: number
-  images: string[]
-  is_listed: boolean
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  currency: string;
+  location: string;
+  bedrooms: number;
+  bathrooms: number;
+  area: number;
+  images: string[];
+  is_listed: boolean;
 }
 
 export default function PropertyList() {
-  const searchParams = useSearchParams()
-  const queryString = searchParams.toString()
+  const [searchParams] = useSearchParams();
+  const queryString = searchParams.toString();
   const { data: properties, error } = useSWR<Property[]>(
-    `/api/v1/properties${queryString ? `?${queryString}` : ''}`,
+    `/api/v1/properties${queryString ? `?${queryString}` : ""}`,
     fetcher
-  )
+  );
 
   if (error) {
     return (
       <div className="text-center text-red-600">
         Failed to load properties. Please try again later.
       </div>
-    )
+    );
   }
 
   if (!properties) {
-    return (
-      <div className="text-center">
-        Loading properties...
-      </div>
-    )
+    return <div className="text-center">Loading properties...</div>;
   }
 
   if (properties.length === 0) {
@@ -48,7 +41,7 @@ export default function PropertyList() {
       <div className="text-center text-gray-600">
         No properties found matching your criteria.
       </div>
-    )
+    );
   }
 
   return (
@@ -56,14 +49,17 @@ export default function PropertyList() {
       {properties.map((property) => (
         <Link
           key={property.id}
-          href={`/properties/${property.id}`}
+          to={`/properties/${property.id}`}
           className="group relative overflow-hidden rounded-lg bg-white shadow transition hover:shadow-lg"
         >
           <div className="aspect-w-16 aspect-h-9 relative">
-            <Image
-              src={property.images[0] ? `${process.env.NEXT_PUBLIC_IPFS_GATEWAY}/ipfs/${property.images[0]}` : '/placeholder.jpg'}
+            <img
+              src={
+                property.images[0]
+                  ? `${process.env.NEXT_PUBLIC_IPFS_GATEWAY}/ipfs/${property.images[0]}`
+                  : "/placeholder.jpg"
+              }
               alt={property.title}
-              fill
               className="object-cover"
             />
           </div>
@@ -95,5 +91,5 @@ export default function PropertyList() {
         </Link>
       ))}
     </div>
-  )
-} 
+  );
+}
