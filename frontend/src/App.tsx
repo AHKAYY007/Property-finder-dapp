@@ -16,15 +16,17 @@ function Router() {
 }
 
 function App() {
-  <>
-    <Toaster position="top-right" />
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
-      <main className="container mx-auto px-4 py-8">
-        <Router />
-      </main>
-    </div>
-  </>;
+  return (
+    <>
+      <Toaster position="top-right" />
+      <div className="min-h-screen bg-gray-50">
+        <Navbar />
+        <main className="container mx-auto px-4 py-8">
+          <Router />
+        </main>
+      </div>
+    </>
+  );
 }
 
 export default App;
