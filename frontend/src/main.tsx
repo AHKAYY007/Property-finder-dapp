@@ -9,6 +9,7 @@ import App from "./App.tsx";
 import "./index.css";
 import { getFullnodeUrl } from "@mysten/sui/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter } from "react-router";
 
 // NOTE YOU'D NEED TO SEE HOW TO SETUP DAPP-KIT PROPERLY
 // LINK https://www.npmjs.com/package/@mysten/dapp-kit
@@ -25,7 +26,9 @@ createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <SuiClientProvider networks={networkConfig} defaultNetwork="localnet">
         <WalletProvider>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </WalletProvider>
       </SuiClientProvider>
     </QueryClientProvider>

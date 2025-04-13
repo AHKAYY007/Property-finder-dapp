@@ -1,17 +1,15 @@
-import { BrowserRouter, Route, Routes } from "react-router";
 import { Toaster } from "react-hot-toast";
-import Home from "./pages/home";
+import { Route, Routes } from "react-router";
 import Navbar from "./components/Navbar";
+import Home from "./pages/home";
 import PropertiesPage from "./pages/properties";
 
 function Router() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/properties" element={<PropertiesPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/properties" element={<PropertiesPage />} />
+    </Routes>
   );
 }
 
